@@ -1,5 +1,5 @@
 #=============================================================================
-# Copyright (c) 2020-2022 Qualcomm Technologies, Inc.
+# Copyright (c) 2022-2023 Qualcomm Technologies, Inc.
 # All Rights Reserved.
 # Confidential and Proprietary - Qualcomm Technologies, Inc.
 #
@@ -48,6 +48,10 @@ enable_tracing_events()
     echo 'p:scaling_max_freq store_scaling_max_freq policy=%x0 buf=%x1 count=%x2' > /sys/kernel/tracing/kprobe_events
     #enable scaling_max_freq trace_point
     echo 1  > /sys/kernel/tracing/events/kprobes/scaling_max_freq/enable
+
+    # EMMC FTRACE
+    echo 1 > /sys/kernel/tracing/events/mmc/mmc_request_start/enable
+    echo 1 > /sys/kernel/tracing/events/mmc/mmc_request_done/enable
 
     #enable trace
     echo 1 > /sys/kernel/tracing/tracing_on

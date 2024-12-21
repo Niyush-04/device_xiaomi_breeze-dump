@@ -23,13 +23,13 @@ PRODUCT_PACKAGES += \
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
     POSTINSTALL_PATH_system=system/bin/otapreopt_script \
-    FILESYSTEM_TYPE_system=erofs \
+    FILESYSTEM_TYPE_system=ext4 \
     POSTINSTALL_OPTIONAL_system=true
 
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_vendor=true \
     POSTINSTALL_PATH_vendor=bin/checkpoint_gc \
-    FILESYSTEM_TYPE_vendor=erofs \
+    FILESYSTEM_TYPE_vendor=ext4 \
     POSTINSTALL_OPTIONAL_vendor=true
 
 PRODUCT_PACKAGES += \
@@ -38,7 +38,7 @@ PRODUCT_PACKAGES += \
 
 # API levels
 BOARD_API_LEVEL := 31
-PRODUCT_SHIPPING_API_LEVEL := 33
+PRODUCT_SHIPPING_API_LEVEL := 34
 
 # fastbootd
 PRODUCT_PACKAGES += \
@@ -87,7 +87,6 @@ PRODUCT_PACKAGES += \
     init.qti.qcv.sh \
     init.qti.touch_boot.sh \
     init.qti.write.sh \
-    mishow_new.sh \
     qca6234-service.sh \
     vendor_modprobe.sh \
 

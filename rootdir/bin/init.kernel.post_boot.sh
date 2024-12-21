@@ -1,5 +1,5 @@
 #=============================================================================
-# Copyright (c) 2019-2022 Qualcomm Technologies, Inc.
+# Copyright (c) 2019-2023 Qualcomm Technologies, Inc.
 # All Rights Reserved.
 # Confidential and Proprietary - Qualcomm Technologies, Inc.
 #
@@ -107,7 +107,6 @@ function configure_read_ahead_kb_values() {
 function configure_memory_parameters() {
 	configure_zram_parameters
 	configure_read_ahead_kb_values
-        ProductName=`getprop ro.product.name`
 
 	echo 100 > /proc/sys/vm/swappiness
 
@@ -150,7 +149,7 @@ if [ -f /sys/devices/soc0/soc_id ]; then
 fi
 
 case "$platformid" in
-	"537" | "583" | "613")
+	"537" | "583" | "613" | "631" | "633" | "634" | "638")
 		/vendor/bin/sh /vendor/bin/init.kernel.post_boot-parrot.sh
 		;;
 	"568" | "602" | "581" | "582")
@@ -160,11 +159,4 @@ case "$platformid" in
 		echo "***WARNING***: Invalid SoC ID\n\t No postboot settings applied!!\n"
 		;;
 esac
-
-ProductName=`getprop ro.product.name`
-if [ "$ProductName" == "sky" ] || [ "$ProductName" == "river" ] || [ "$ProductName" == "XIG03"]; then
-	echo 100 > /proc/sys/vm/swappiness
-	sleep 600
-	echo 60 > /proc/sys/vm/watermark_scale_factor
-fi
 

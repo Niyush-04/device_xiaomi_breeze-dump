@@ -43,6 +43,9 @@ enable_tracing_events()
     echo 1 > /sys/kernel/tracing/events/msm_low_power/enable
     # fastrpc
     echo 1 > /sys/kernel/tracing/events/fastrpc/enable
+    # EMMC FTRACE
+    echo 1 > /sys/kernel/tracing/events/mmc/mmc_request_start/enable
+    echo 1 > /sys/kernel/tracing/events/mmc/mmc_request_done/enable
     #enable trace
     echo 1 > /sys/kernel/tracing/tracing_on
 }
@@ -834,6 +837,44 @@ config_dcc_apss_pdc()
     echo 0xB201200 3 > $DCC_PATH/config
     echo 0xB204510 2 > $DCC_PATH/config
     echo 0xB204520 1 > $DCC_PATH/config
+}
+
+config_dcc_prng()
+{
+    echo 0x10C1000 1 > $DCC_PATH/config
+    echo 0x10C1004 1 > $DCC_PATH/config
+    echo 0x10C1010 1 > $DCC_PATH/config
+    echo 0x10C1014 1 > $DCC_PATH/config
+    echo 0x10C1018 1 > $DCC_PATH/config
+    echo 0x10C101C 1 > $DCC_PATH/config
+    echo 0x10C1020 1 > $DCC_PATH/config
+    echo 0x10C1024 1 > $DCC_PATH/config
+    echo 0x10C1028 1 > $DCC_PATH/config
+    echo 0x10C1100 1 > $DCC_PATH/config
+    echo 0x10C1104 1 > $DCC_PATH/config
+    echo 0x10C1108 1 > $DCC_PATH/config
+    echo 0x10C1110 1 > $DCC_PATH/config
+    echo 0x10C1114 1 > $DCC_PATH/config
+    echo 0x10C1118 1 > $DCC_PATH/config
+    echo 0x10C111C 1 > $DCC_PATH/config
+    echo 0x10C1120 1 > $DCC_PATH/config
+    echo 0x10C1124 1 > $DCC_PATH/config
+    echo 0x10C1128 1 > $DCC_PATH/config
+    echo 0x10C1130 1 > $DCC_PATH/config
+    echo 0x10C1134 1 > $DCC_PATH/config
+    echo 0x10C113C 1 > $DCC_PATH/config
+    echo 0x10C1140 1 > $DCC_PATH/config
+    echo 0x10C1148 1 > $DCC_PATH/config
+    echo 0x10C114C 1 > $DCC_PATH/config
+    echo 0x10C1150 1 > $DCC_PATH/config
+
+    echo 0x10C0000 1 > $DCC_PATH/config
+    echo 0x10C0004 1 > $DCC_PATH/config
+    echo 0x10C0008 1 > $DCC_PATH/config
+    echo 0x10C000C 1 > $DCC_PATH/config
+
+    echo 0x10C2000 1 > $DCC_PATH/config
+    echo 0x10C2004 1 > $DCC_PATH/config
 }
 
 config_dcc_ddr()
@@ -2056,6 +2097,7 @@ enable_dcc()
     config_dcc_lpass
     config_gcc_vote
     config_dcc_timer
+    config_dcc_prng
 
     echo 4 > $DCC_PATH/curr_list
     echo cap > $DCC_PATH/func_type

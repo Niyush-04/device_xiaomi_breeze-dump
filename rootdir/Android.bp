@@ -162,12 +162,6 @@ sh_binary {
 }
 
 sh_binary {
-    name: "mishow_new.sh",
-    src: "bin/mishow_new.sh",
-    vendor: true,
-}
-
-sh_binary {
     name: "qca6234-service.sh",
     src: "bin/qca6234-service.sh",
     vendor: true,
