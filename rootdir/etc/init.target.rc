@@ -164,6 +164,11 @@ on property:vendor.display.lcd_density=560
 on property:vendor.display.lcd_density=640
    setprop dalvik.vm.heapgrowthlimit 512m
 
+on property:vendor.audio.usb_cctoggle=1
+    write /sys/class/audio/audio_status 1
+on property:vendor.audio.usb_cctoggle=0
+    write /sys/class/audio/audio_status 0
+
 on init && property:ro.boot.mode=charger
     wait_for_prop vendor.all.modules.ready 1
     mount_all /vendor/etc/charger_fw_fstab.qti --early
