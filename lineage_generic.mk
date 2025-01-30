@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2024 The LineageOS Project
+# Copyright (C) 2025 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -23,6 +23,6 @@ PRODUCT_MANUFACTURER := xiaomi
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="missi-user 15 AQ3A.240912.001 OS2.0.3.0.VNUINXM release-keys"
+    PRIVATE_BUILD_DESC="missi-user 15 AQ3A.240912.001 OS2.0.4.0.VNUINXM release-keys"
 
-BUILD_FINGERPRINT := qti/missi/missi:15/AQ3A.240912.001/OS2.0.3.0.VNUINXM:user/release-keys
+BUILD_FINGERPRINT := qti/missi/missi:15/AQ3A.240912.001/OS2.0.4.0.VNUINXM:user/release-keys
