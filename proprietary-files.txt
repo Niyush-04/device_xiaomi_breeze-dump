@@ -1,4 +1,4 @@
-# Unpinned blobs from missi-user 15 AQ3A.240912.001 OS2.0.5.0.VNUINXM release-keys
+# Unpinned blobs from missi-user 15 AQ3A.240912.001 OS2.0.5.0.VNUCNXM release-keys
 
 # ACDB
 vendor/etc/acdbdata/IDP_UPD/IDP_UPD_acdb_cal.acdb
@@ -420,11 +420,11 @@ vendor/lib/camera/com.qti.sensor.s5kjd1sp.so
 vendor/lib/camera/com.qti.sensormodule.clarence_sunny_s5k3m5.bin
 vendor/lib/camera/com.qti.sensormodule.clarence_truly_s5kjd1sp.bin
 vendor/lib/camera/com.qti.sensormodule.lce_ov8856.bin
-vendor/lib/camera/com.qti.sensormodule.n19_aac_gc02m1b_in.bin
+vendor/lib/camera/com.qti.sensormodule.n19_aac_gc02m1b.bin
 vendor/lib/camera/com.qti.sensormodule.n19_aac_s5k3l6.bin
 vendor/lib/camera/com.qti.sensormodule.n19_aac_s5khm6.bin
 vendor/lib/camera/com.qti.sensormodule.n19_aac_s5khm6sf.bin
-vendor/lib/camera/com.qti.sensormodule.n19_ofilm_gc02m1b_in.bin
+vendor/lib/camera/com.qti.sensormodule.n19_ofilm_gc02m1b.bin
 vendor/lib/camera/com.qti.sensormodule.n19_ofilm_ov08d10.bin
 vendor/lib/camera/com.qti.sensormodule.n19_ofilm_ov13b10.bin
 vendor/lib/camera/com.qti.sensormodule.n19_ofilm_s5khm6.bin
@@ -448,11 +448,11 @@ vendor/lib/camera/com.qti.tuned.clarence_sunny_s5k3m5.bin
 vendor/lib/camera/com.qti.tuned.clarence_sunny_s5kjd1sp.bin
 vendor/lib/camera/com.qti.tuned.clarence_truly_s5kjd1sp.bin
 vendor/lib/camera/com.qti.tuned.default.bin
-vendor/lib/camera/com.qti.tuned.n19_aac_gc02m1b_in.bin
+vendor/lib/camera/com.qti.tuned.n19_aac_gc02m1b.bin
 vendor/lib/camera/com.qti.tuned.n19_aac_s5k3l6.bin
 vendor/lib/camera/com.qti.tuned.n19_aac_s5khm6.bin
 vendor/lib/camera/com.qti.tuned.n19_aac_s5khm6sf.bin
-vendor/lib/camera/com.qti.tuned.n19_ofilm_gc02m1b_in.bin
+vendor/lib/camera/com.qti.tuned.n19_ofilm_gc02m1b.bin
 vendor/lib/camera/com.qti.tuned.n19_ofilm_ov08d10.bin
 vendor/lib/camera/com.qti.tuned.n19_ofilm_ov13b10.bin
 vendor/lib/camera/com.qti.tuned.n19_ofilm_s5khm6.bin
@@ -688,11 +688,11 @@ vendor/lib64/camera/com.qti.sensor.s5kjd1sp.so
 vendor/lib64/camera/com.qti.sensormodule.clarence_sunny_s5k3m5.bin
 vendor/lib64/camera/com.qti.sensormodule.clarence_truly_s5kjd1sp.bin
 vendor/lib64/camera/com.qti.sensormodule.lce_ov8856.bin
-vendor/lib64/camera/com.qti.sensormodule.n19_aac_gc02m1b_in.bin
+vendor/lib64/camera/com.qti.sensormodule.n19_aac_gc02m1b.bin
 vendor/lib64/camera/com.qti.sensormodule.n19_aac_s5k3l6.bin
 vendor/lib64/camera/com.qti.sensormodule.n19_aac_s5khm6.bin
 vendor/lib64/camera/com.qti.sensormodule.n19_aac_s5khm6sf.bin
-vendor/lib64/camera/com.qti.sensormodule.n19_ofilm_gc02m1b_in.bin
+vendor/lib64/camera/com.qti.sensormodule.n19_ofilm_gc02m1b.bin
 vendor/lib64/camera/com.qti.sensormodule.n19_ofilm_ov08d10.bin
 vendor/lib64/camera/com.qti.sensormodule.n19_ofilm_ov13b10.bin
 vendor/lib64/camera/com.qti.sensormodule.n19_ofilm_s5khm6.bin
@@ -716,11 +716,11 @@ vendor/lib64/camera/com.qti.tuned.clarence_sunny_s5k3m5.bin
 vendor/lib64/camera/com.qti.tuned.clarence_sunny_s5kjd1sp.bin
 vendor/lib64/camera/com.qti.tuned.clarence_truly_s5kjd1sp.bin
 vendor/lib64/camera/com.qti.tuned.default.bin
-vendor/lib64/camera/com.qti.tuned.n19_aac_gc02m1b_in.bin
+vendor/lib64/camera/com.qti.tuned.n19_aac_gc02m1b.bin
 vendor/lib64/camera/com.qti.tuned.n19_aac_s5k3l6.bin
 vendor/lib64/camera/com.qti.tuned.n19_aac_s5khm6.bin
 vendor/lib64/camera/com.qti.tuned.n19_aac_s5khm6sf.bin
-vendor/lib64/camera/com.qti.tuned.n19_ofilm_gc02m1b_in.bin
+vendor/lib64/camera/com.qti.tuned.n19_ofilm_gc02m1b.bin
 vendor/lib64/camera/com.qti.tuned.n19_ofilm_ov08d10.bin
 vendor/lib64/camera/com.qti.tuned.n19_ofilm_ov13b10.bin
 vendor/lib64/camera/com.qti.tuned.n19_ofilm_s5khm6.bin
@@ -2881,41 +2881,24 @@ vendor/lib64/vendor.qti.hardware.limits@1.1.so
 vendor/bin/mi_thermald
 
 # Thermal configs
-vendor/etc/thermal-camera-india-demo.conf
 vendor/etc/thermal-camera.conf
-vendor/etc/thermal-cclassvideo-india-demo.conf
 vendor/etc/thermal-cclassvideo.conf
-vendor/etc/thermal-cgame-india-demo.conf
 vendor/etc/thermal-cgame.conf
 vendor/etc/thermal-chg-only.conf
-vendor/etc/thermal-class0-india-demo.conf
 vendor/etc/thermal-class0.conf
 vendor/etc/thermal-engine.conf
-vendor/etc/thermal-hp-game-india-demo.conf
 vendor/etc/thermal-hp-game.conf
-vendor/etc/thermal-hp-normal-india-demo.conf
 vendor/etc/thermal-hp-normal.conf
-vendor/etc/thermal-huanji-india-demo.conf
 vendor/etc/thermal-huanji.conf
-vendor/etc/thermal-india-demo.conf
-vendor/etc/thermal-livestream-india-demo.conf
 vendor/etc/thermal-livestream.conf
 vendor/etc/thermal-map.conf
-vendor/etc/thermal-mgame-india-demo.conf
 vendor/etc/thermal-mgame.conf
-vendor/etc/thermal-navigation-india-demo.conf
 vendor/etc/thermal-navigation.conf
-vendor/etc/thermal-nolimits-india-demo.conf
 vendor/etc/thermal-nolimits.conf
-vendor/etc/thermal-normal-india-demo.conf
 vendor/etc/thermal-normal.conf
-vendor/etc/thermal-phone-india-demo.conf
 vendor/etc/thermal-phone.conf
-vendor/etc/thermal-tgame-india-demo.conf
 vendor/etc/thermal-tgame.conf
-vendor/etc/thermal-video-india-demo.conf
 vendor/etc/thermal-video.conf
-vendor/etc/thermal-videochat-india-demo.conf
 vendor/etc/thermal-videochat.conf
 vendor/etc/thermald-devices.conf
 
@@ -3290,6 +3273,7 @@ vendor/bin/thermal-engine-v2
 vendor/bin/trusteduilistener
 vendor/bin/ubwcconvert
 vendor/bin/vendor.dpmd
+vendor/bin/vendor.xiaomi.hardware.otrpagent@2.0-service
 vendor/bin/vendor_cmd_tool
 vendor/bin/vmmgr
 vendor/bin/vsimd
@@ -3353,6 +3337,7 @@ vendor/etc/init/vendor.xiaomi.hardware.misys@1.0-service.rc
 vendor/etc/init/vendor.xiaomi.hardware.misys@2.0-service.rc
 vendor/etc/init/vendor.xiaomi.hardware.misys@3.0-service.rc
 vendor/etc/init/vendor.xiaomi.hardware.misys@4.0-service.rc
+vendor/etc/init/vendor.xiaomi.hardware.otrpagent@2.0-service.rc
 vendor/etc/init/vendor.xiaomi.hardware.vsimapp@1.0-service.rc
 vendor/etc/init/vendor_flash_recovery.rc
 vendor/etc/init/vmmgr.rc
@@ -3398,6 +3383,7 @@ vendor/etc/vintf/manifest/dataconnection-saidl.xml
 vendor/etc/vintf/manifest/manifest.xml
 vendor/etc/vintf/manifest/manifest_non_qmaa.xml
 vendor/etc/vintf/manifest/manifest_non_qmaa_extn.xml
+vendor/etc/vintf/manifest/manifest_vendor.xiaomi.hardware.otrpagent@2.0.xml
 vendor/etc/vintf/manifest/manifest_vendor.xiaomi.hardware.vsimapp.xml
 vendor/etc/vintf/manifest/mi-misight.xml
 vendor/etc/vintf/manifest/power.xml
@@ -4072,6 +4058,8 @@ vendor/lib64/vendor.xiaomi.hardware.misys@1.0.so
 vendor/lib64/vendor.xiaomi.hardware.misys@2.0.so
 vendor/lib64/vendor.xiaomi.hardware.misys@3.0.so
 vendor/lib64/vendor.xiaomi.hardware.misys@4.0.so
+vendor/lib64/vendor.xiaomi.hardware.otrpagent@2.0-impl.so
+vendor/lib64/vendor.xiaomi.hardware.otrpagent@2.0.so
 vendor/build_breeze_cn.prop
 vendor/build_breeze_cn_pa.prop
 vendor/build_breeze_in.prop

@@ -10,11 +10,11 @@ DEVICE_PATH := device/xiaomi/generic
 AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
     vendor \
-    odm \
-    system \
-    product \
     vendor_dlkm \
-    system_ext
+    odm \
+    system_ext \
+    product \
+    system
 BOARD_USES_RECOVERY_AS_BOOT := true
 
 # Architecture
@@ -42,7 +42,7 @@ TARGET_SCREEN_DENSITY := 440
 # Kernel
 BOARD_BOOTIMG_HEADER_VERSION := 4
 BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_CMDLINE := video=vfb:640x400,bpp=32,memsize=3072000 bootinfo.fingerprint=breeze_in:12/OS2.0.5.0.VNUINXM:user mtdoops.fingerprint=breeze_in:12/OS2.0.5.0.VNUINXM:user bootconfig
+BOARD_KERNEL_CMDLINE := video=vfb:640x400,bpp=32,memsize=3072000 bootinfo.fingerprint=breeze:12/OS2.0.5.0.VNUCNXM:user mtdoops.fingerprint=breeze:12/OS2.0.5.0.VNUCNXM:user bootconfig
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 BOARD_KERNEL_IMAGE_NAME := Image
@@ -72,11 +72,11 @@ BOARD_SUPER_PARTITION_SIZE := 9126805504 # TODO: Fix hardcoded value
 BOARD_SUPER_PARTITION_GROUPS := xiaomi_dynamic_partitions
 BOARD_XIAOMI_DYNAMIC_PARTITIONS_PARTITION_LIST := \
     vendor \
-    odm \
-    system \
-    product \
     vendor_dlkm \
-    system_ext
+    odm \
+    system_ext \
+    product \
+    system
 BOARD_XIAOMI_DYNAMIC_PARTITIONS_SIZE := 9122611200 # TODO: Fix hardcoded value
 
 # Platform
