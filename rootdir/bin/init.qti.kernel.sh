@@ -35,6 +35,9 @@ verify_pasr_support()
 {
 	ddr_type=`od -An -tx /proc/device-tree/memory/ddr_device_type`
 	ddr_type5="08"
+       # MIUI ADD: Performance_MemoryEnhance
+       devicename=`getprop ro.product.device`
+       # END Performance_MemoryEnhance
 
          if [ -d /sys/kernel/mem-offline ]; then
 		#only LPDDR5 supports PAAR
@@ -44,6 +47,16 @@ verify_pasr_support()
 
                 setprop vendor.pasr.enabled true
          fi
+
+         # MIUI ADD: Performance_MemoryEnhance
+         if [ "$devicename" == "flame" ] || [ "$devicename" == "blaze" ]; then
+                echo 3 > /proc/sys/vm/page-cluster
+                echo true > /sys/kernel/mm/swap/vma_ra_enabled
+         else
+                echo 0 > /proc/sys/vm/page-cluster
+                echo false > /sys/kernel/mm/swap/vma_ra_enabled
+         fi
+         # END Performance_MemoryEnhance
 }
 
 start_msm_irqbalance()

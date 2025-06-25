@@ -84,9 +84,9 @@ function configure_read_ahead_kb_values() {
 	# /sys/block/dm-0/queue/read_ahead_kb to /sys/block/dm-10/queue/read_ahead_kb
 	# /sys/block/sda/queue/read_ahead_kb to /sys/block/sdh/queue/read_ahead_kb
 
-	# Set 128 for <= 4GB &
-	# set 512 for >= 5GB targets.
-	if [ $MemTotal -le 4194304 ]; then
+	# Set 128 for <= 3GB &
+	# set 512 for >= 4GB targets.
+	if [ $MemTotal -le 3145728 ]; then
 		ra_kb=128
 	else
 		ra_kb=512
@@ -160,3 +160,12 @@ case "$platformid" in
 		;;
 esac
 
+ProductDevice=`getprop ro.product.device`
+ProductName=`getprop ro.product.name`
+if [ "$ProductDevice" == "flame" ] ; then
+	echo 31134 > /proc/sys/vm/extra_free_kbytes
+	if [ "$ProductName" == "flame" ] ; then
+	        sleep 600
+	        echo 60 > /proc/sys/vm/watermark_scale_factor
+	fi
+fi

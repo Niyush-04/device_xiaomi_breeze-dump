@@ -47,9 +47,6 @@ soc_id=`cat /sys/devices/soc0/soc_id 2> /dev/null`
 esoc_name=`cat /sys/bus/esoc/devices/esoc0/esoc_name 2> /dev/null`
 
 target=`getprop ro.board.platform`
-#  N19 code for HQ-351562 by p-yeyinzi at 2023/12/15 - start
-dfactory=`getprop ro.factory_version`
-#  N19 code for HQ-351562 by p-yeyinzi at 2023/12/15 - end
 
 #
 # Override USB default composition
@@ -113,16 +110,7 @@ if [ "$(getprop persist.vendor.usb.config)" == "" -a "$(getprop ro.build.type)" 
 		          setprop persist.vendor.usb.config diag,serial_cdev,rmnet,dpl,adb
 		      ;;
 	              "msmnile" | "sm6150" | "trinket" | "lito" | "atoll" | "bengal" | "lahaina" | "holi" | "taro" | "parrot" | "ravelin")
-			  #  N19 code for HQ-351562 by p-yeyinzi at 2023/12/15 - start
-				case "$dfactory" in
-					"true")
-						setprop persist.vendor.usb.config diag,serial_cdev,rmnet,dpl,qdss,adb
-						;;
-					*)
-						setprop persist.vendor.usb.config adb
-						;;
-				esac
-			  #  N19 code for HQ-351562 by p-yeyinzi at 2023/12/15 - end
+			  setprop persist.vendor.usb.config diag,serial_cdev,rmnet,dpl,qdss,adb
 		      ;;
 	              *)
 		          setprop persist.vendor.usb.config diag,adb
@@ -177,15 +165,15 @@ if [ -d /config/usb_gadget ]; then
 	fi
 	setprop vendor.usb.configfs 1
 fi
-
 # update product
-marketname=`getprop ro.product.marketname`
-if [ "$marketname" != "" ]; then
-    setprop vendor.usb.product_string "$marketname"
-else
-    setprop vendor.usb.product_string "$(getprop ro.product.model)"
+if [ "$(getprop ro.boot.factorybuild)" != "1" ]; then
+	marketname=`getprop ro.product.marketname`
+	if [ "$marketname" != "" ]; then
+	    setprop vendor.usb.product_string "$marketname"
+	else
+	    setprop vendor.usb.product_string "$(getprop ro.product.model)"
+	fi
 fi
-
 #
 # Initialize RNDIS Diag option. If unset, set it to 'none'.
 #

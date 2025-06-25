@@ -354,6 +354,57 @@ service vendor.audio_tc104 /vendor/bin/mm-audio-ftm -tc 104 -file /data/vendor/a
     disabled
     oneshot
 
+# add audio agmhostless_loop and agmcap_record beign
+service agmhostless_loop_hsmic_spk /vendor/bin/agmhostless -D 100 -P 103 -C 104 -c 1 -r 48000 -b 16 -T 60 -i CODEC_DMA-LPAIF_RXTX-TX-3 -o CODEC_DMA-LPAIF_RXTX-RX-0 -cdkv 0xA3000003 -skv 0xA1000003 -pdkv 0xA2000001
+    user root
+    group root audio system
+    disabled
+    oneshot
+
+service agmhostless_loop_hsmic_headphone /vendor/bin/agmhostless -D 100 -P 103 -C 104 -c 1 -r 48000 -b 16 -T 60 -i CODEC_DMA-LPAIF_RXTX-TX-3 -o CODEC_DMA-LPAIF_RXTX-RX-0 -cdkv 0xA3000003 -skv 0xA1000003 -pdkv 0xA2000002
+    user root
+    group root audio system
+    disabled
+    oneshot
+
+service agmhostless_loop_hsmic_rcv /vendor/bin/agmhostless -D 100 -P 103 -C 104 -c 1 -r 48000 -b 16 -T 60 -i CODEC_DMA-LPAIF_RXTX-TX-3 -o CODEC_DMA-LPAIF_RXTX-RX-0 -cdkv 0xA3000003 -skv 0xA1000003 -pdkv 0xA2000004
+    user root
+    group root audio system
+    disabled
+    oneshot
+
+service agmhostless_loop_headset /vendor/bin/agmhostless -D 100 -P 103 -C 104 -c 1 -r 48000 -b 16 -T 60 -i CODEC_DMA-LPAIF_RXTX-TX-3 -o CODEC_DMA-LPAIF_RXTX-RX-0 -cdkv 0xA3000004 -skv 0xA1000003 -pdkv 0xA2000002
+    user root
+    group root audio system
+    disabled
+    oneshot
+
+service agmhostless_loop_rcv /vendor/bin/agmhostless -D 100 -P 103 -C 104 -c 1 -r 48000 -b 16 -T 60 -i CODEC_DMA-LPAIF_RXTX-TX-3 -o CODEC_DMA-LPAIF_RXTX-RX-0 -cdkv 0xA3000004 -skv 0xA1000003 -pdkv 0xA2000004
+    user root
+    group root audio system
+    disabled
+    oneshot
+
+service agmhostless_loop_spk /vendor/bin/agmhostless -D 100 -P 103 -C 104 -c 1 -r 48000 -b 16 -T 60 -i CODEC_DMA-LPAIF_RXTX-TX-3 -o CODEC_DMA-LPAIF_RXTX-RX-0 -cdkv 0xA3000004 -skv 0xA1000003 -pdkv 0xA2000001
+    user root
+    group root audio system
+    disabled
+    oneshot
+
+service agmcap_record /vendor/bin/agmcap /sdcard/miccapture.wav -D 100 -d 101 -c 1 -r 48000 -b 16 -i CODEC_DMA-LPAIF_RXTX-TX-3
+    user root
+    group root audio system
+    disabled
+    oneshot
+
+service agmcap_us_record /vendor/bin/agmcap /sdcard/us_mic.wav -D 100 -d 101 -c 1 -r 96000 -b 16 -T 3 -i CODEC_DMA-LPAIF_RXTX-TX-3 -us 1
+    user root
+    group root audio system
+    disabled
+    oneshot
+
+# add audio agmhostless_loop and agmcap_record end
+
 # ========================================================
 #           End for audio TC
 # ========================================================

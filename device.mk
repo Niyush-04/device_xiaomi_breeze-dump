@@ -61,6 +61,8 @@ PRODUCT_CHARACTERISTICS := nosdcard
 
 # Rootdir
 PRODUCT_PACKAGES += \
+    bluedut.sh \
+    bt_close.sh \
     init.class_main.sh \
     init.crda.sh \
     init.kernel.post_boot-parrot.sh \
@@ -87,8 +89,11 @@ PRODUCT_PACKAGES += \
     init.qti.qcv.sh \
     init.qti.touch_boot.sh \
     init.qti.write.sh \
+    myftm.agent.sh \
     qca6234-service.sh \
     vendor_modprobe.sh \
+    wifitest.sh \
+    wifitest_close.sh \
 
 PRODUCT_PACKAGES += \
     fstab.emmc \
