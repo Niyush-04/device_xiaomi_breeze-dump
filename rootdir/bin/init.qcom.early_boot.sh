@@ -68,17 +68,53 @@ else
     log -t DRM_BOOT -p w "file: '$vbfile' or perms doesn't exist"
 fi
 
+
 function set_density_by_fb() {
     #put default density based on width
     if [ -z $fb_width ]; then
-        setprop vendor.display.lcd_density 320
+        project=`getprop ro.product.device`
+        case "$project" in
+            "cupid")
+            setprop vendor.display.lcd_density 440
+            ;;
+            "zeus")
+            setprop vendor.display.lcd_density 560
+            ;;
+            "zizhan")
+            setprop vendor.display.lcd_density 440
+            ;;
+            "unicorn")
+            setprop vendor.display.lcd_density 560
+            ;;
+            "mayfly")
+            setprop vendor.display.lcd_density 440
+            ;;
+            "ziyi")
+            setprop vendor.display.lcd_density 440
+            ;;
+            "mondrian")
+            setprop vendor.display.lcd_density 560
+            ;;
+            "marble")
+            setprop vendor.display.lcd_density 440
+            ;;
+            "yudi")
+            setprop vendor.display.lcd_density 360
+            ;;
+            "liuqin")
+            setprop vendor.display.lcd_density 400
+            ;;
+            *)
+            setprop vendor.display.lcd_density 480
+            ;;
+        esac
     else
         if [ $fb_width -ge 1600 ]; then
            setprop vendor.display.lcd_density 640
         elif [ $fb_width -ge 1440 ]; then
            setprop vendor.display.lcd_density 560
         elif [ $fb_width -ge 1080 ]; then
-           setprop vendor.display.lcd_density 440
+           setprop vendor.display.lcd_density 480
         elif [ $fb_width -ge 720 ]; then
            setprop vendor.display.lcd_density 320 #for 720X1280 resolution
         elif [ $fb_width -ge 480 ]; then
@@ -86,6 +122,41 @@ function set_density_by_fb() {
         else
             setprop vendor.display.lcd_density 160
         fi
+        project=`getprop ro.product.device`
+        case "$project" in
+            "ingres")
+            factorybuild=`getprop ro.boot.factorybuild`
+            if [ $factorybuild -ge 1 ]; then
+                setprop vendor.display.lcd_density 480
+            else
+                setprop vendor.display.lcd_density 440
+            fi
+            ;;
+            "zizhan")
+            setprop vendor.display.lcd_density 440
+            ;;
+            "cupid")
+            setprop vendor.display.lcd_density 440
+            ;;
+            "diting")
+            setprop vendor.display.lcd_density 480
+            ;;
+            "mayfly")
+            setprop vendor.display.lcd_density 440
+            ;;
+            "ziyi")
+            setprop vendor.display.lcd_density 440
+            ;;
+            "marble")
+            setprop vendor.display.lcd_density 440
+            ;;
+            "yudi")
+            setprop vendor.display.lcd_density 360
+            ;;
+            "liuqin")
+            setprop vendor.display.lcd_density 400
+            ;;
+        esac
     fi
 }
 
@@ -419,7 +490,7 @@ set_density_by_fb
 
 
 # set Lilliput LCD density for ADP
-product=`getprop ro.board.platform`
+product=`getprop ro.product.vendor_dlkm.name`
 
 case "$product" in
         "msmnile_au")
@@ -454,6 +525,22 @@ case "$product" in
         *)
         ;;
 esac
+
+case "$product" in
+        "yudi")
+         setprop vendor.display.lcd_density 360
+         ;;
+        *)
+        ;;
+esac
+case "$product" in
+        "liuqin")
+         setprop vendor.display.lcd_density 400
+         ;;
+        *)
+        ;;
+esac
+
 # Setup display nodes & permissions
 # HDMI can be fb1 or fb2
 # Loop through the sysfs nodes and determine

@@ -6,6 +6,18 @@
 
 // Init scripts
 sh_binary {
+    name: "audio_jack_status.sh",
+    src: "bin/audio_jack_status.sh",
+    vendor: true,
+}
+
+sh_binary {
+    name: "headset_detect.sh",
+    src: "bin/headset_detect.sh",
+    vendor: true,
+}
+
+sh_binary {
     name: "init.class_main.sh",
     src: "bin/init.class_main.sh",
     vendor: true,
@@ -18,14 +30,20 @@ sh_binary {
 }
 
 sh_binary {
-    name: "init.kernel.post_boot-parrot.sh",
-    src: "bin/init.kernel.post_boot-parrot.sh",
+    name: "init.kernel.post_boot-cape.sh",
+    src: "bin/init.kernel.post_boot-cape.sh",
     vendor: true,
 }
 
 sh_binary {
-    name: "init.kernel.post_boot-ravelin.sh",
-    src: "bin/init.kernel.post_boot-ravelin.sh",
+    name: "init.kernel.post_boot-diwali.sh",
+    src: "bin/init.kernel.post_boot-diwali.sh",
+    vendor: true,
+}
+
+sh_binary {
+    name: "init.kernel.post_boot-taro.sh",
+    src: "bin/init.kernel.post_boot-taro.sh",
     vendor: true,
 }
 
@@ -102,14 +120,20 @@ sh_binary {
 }
 
 sh_binary {
-    name: "init.qti.kernel.debug-parrot.sh",
-    src: "bin/init.qti.kernel.debug-parrot.sh",
+    name: "init.qti.kernel.debug-cape.sh",
+    src: "bin/init.qti.kernel.debug-cape.sh",
     vendor: true,
 }
 
 sh_binary {
-    name: "init.qti.kernel.debug-ravelin.sh",
-    src: "bin/init.qti.kernel.debug-ravelin.sh",
+    name: "init.qti.kernel.debug-diwali.sh",
+    src: "bin/init.qti.kernel.debug-diwali.sh",
+    vendor: true,
+}
+
+sh_binary {
+    name: "init.qti.kernel.debug-taro.sh",
+    src: "bin/init.qti.kernel.debug-taro.sh",
     vendor: true,
 }
 
@@ -120,8 +144,8 @@ sh_binary {
 }
 
 sh_binary {
-    name: "init.qti.kernel.early_debug-parrot.sh",
-    src: "bin/init.qti.kernel.early_debug-parrot.sh",
+    name: "init.qti.kernel.early_debug-taro.sh",
+    src: "bin/init.qti.kernel.early_debug-taro.sh",
     vendor: true,
 }
 
@@ -162,8 +186,44 @@ sh_binary {
 }
 
 sh_binary {
+    name: "playback_headset.sh",
+    src: "bin/playback_headset.sh",
+    vendor: true,
+}
+
+sh_binary {
     name: "qca6234-service.sh",
     src: "bin/qca6234-service.sh",
+    vendor: true,
+}
+
+sh_binary {
+    name: "setup_rcv2backmic.sh",
+    src: "bin/setup_rcv2backmic.sh",
+    vendor: true,
+}
+
+sh_binary {
+    name: "setup_rcv2mainmic.sh",
+    src: "bin/setup_rcv2mainmic.sh",
+    vendor: true,
+}
+
+sh_binary {
+    name: "setup_rcv2topmic.sh",
+    src: "bin/setup_rcv2topmic.sh",
+    vendor: true,
+}
+
+sh_binary {
+    name: "spk_dsm_test.sh",
+    src: "bin/spk_dsm_test.sh",
+    vendor: true,
+}
+
+sh_binary {
+    name: "us_cal.sh",
+    src: "bin/us_cal.sh",
     vendor: true,
 }
 
@@ -174,6 +234,20 @@ sh_binary {
 }
 
 // Init configuration files
+prebuilt_etc {
+    name: "init.batterysecret.rc",
+    src: "etc/init.batterysecret.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.mi_thermald.rc",
+    src: "etc/init.mi_thermald.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
 prebuilt_etc {
     name: "init.qcom.factory.rc",
     src: "etc/init.qcom.factory.rc",
@@ -203,6 +277,13 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
+    name: "init.qti.kernel.test.rc",
+    src: "etc/init.qti.kernel.test.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
     name: "init.qti.ufs.rc",
     src: "etc/init.qti.ufs.rc",
     sub_dir: "init/hw",
@@ -218,7 +299,7 @@ prebuilt_etc {
 
 // fstab
 prebuilt_etc {
-    name: "fstab.emmc",
-    src: "etc/fstab.emmc",
+    name: "fstab.qcom",
+    src: "etc/fstab.qcom",
     vendor: true,
 }

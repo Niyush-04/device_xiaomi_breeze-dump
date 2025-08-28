@@ -1,5 +1,5 @@
 #=============================================================================
-# Copyright (c) 2020-2022 Qualcomm Technologies, Inc.
+# Copyright (c) 2020-2021 Qualcomm Technologies, Inc.
 # All Rights Reserved.
 # Confidential and Proprietary - Qualcomm Technologies, Inc.
 #
@@ -30,19 +30,23 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #=============================================================================
 
-if [ -f /sys/devices/soc0/soc_id ]; then
-	platformid=`cat /sys/devices/soc0/soc_id`
+if [ -f /sys/devices/soc0/chip_family ]; then
+	chipfamily=`cat /sys/devices/soc0/chip_family`
 fi
 
-case "$platformid" in
-	"537" | "583" | "613")
-		/vendor/bin/sh /vendor/bin/init.qti.kernel.debug-parrot.sh
-		;;
-	"568" | "602" | "581" | "582")
-		/vendor/bin/sh /vendor/bin/init.qti.kernel.debug-ravelin.sh
-		;;
-	*)
-		echo "***WARNING***: Invalid SoC ID\n\t No postboot settings applied!!\n"
-		;;
-esac
+case "$chipfamily" in
+    "0x74")
+	/vendor/bin/sh /vendor/bin/init.qti.kernel.debug-taro.sh
+	;;
 
+    "0x7B"|"0x7b")
+	/vendor/bin/sh /vendor/bin/init.qti.kernel.debug-diwali.sh
+	;;
+
+    "0x82")
+	/vendor/bin/sh /vendor/bin/init.qti.kernel.debug-cape.sh
+	;;
+     *)
+	echo "***WARNING***: Invalid chip family\n\t skipping debug script!!\n"
+	;;
+esac

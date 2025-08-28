@@ -115,6 +115,12 @@ on boot
     # Allow access to memory hotplug device attributes
     chown system system /sys/kernel/mem-offline/anon_migrate
 
+on boot && property:persist.sys.stability.smartfocusio=on
+    write /sys/block/sda/queue/scheduler cpq
+on property:persist.sys.stability.smartfocusio=off
+    write /sys/block/sda/queue/scheduler bfq
+    write /sys/block/sda/queue/iosched/slice_idle 0
+
 on post-fs-data
     # Create directory used for dump collection
     mkdir /data/vendor/ssrdump 0770 root system
@@ -163,7 +169,6 @@ on property:sys.boot_completed=1
     write /sys/block/dm-0/queue/read_ahead_kb 512
     write /sys/block/dm-1/queue/read_ahead_kb 512
     write /sys/block/dm-2/queue/read_ahead_kb 512
-    write /proc/sys/vm/page-cluster 0
     start kernel-boot
     start kernel-post-boot
 

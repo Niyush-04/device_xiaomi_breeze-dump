@@ -29,8 +29,32 @@
 #
 
 # Changes from Qualcomm Innovation Center are provided under the following license:
-# Copyright (c) 2022-2023 Qualcomm Innovation Center, Inc. All rights reserved.
-# SPDX-License-Identifier: BSD-3-Clause-Clear
+# Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are
+# met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above
+#       copyright notice, this list of conditions and the following
+#       disclaimer in the documentation and/or other materials provided
+#       with the distribution.
+#     * Neither the name of The Linux Foundation nor the names of its
+#       contributors may be used to endorse or promote products derived
+#       from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+# ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+# BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+# OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+# IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
 # Set platform variables
@@ -47,9 +71,6 @@ soc_id=`cat /sys/devices/soc0/soc_id 2> /dev/null`
 esoc_name=`cat /sys/bus/esoc/devices/esoc0/esoc_name 2> /dev/null`
 
 target=`getprop ro.board.platform`
-#  N19 code for HQ-351562 by p-yeyinzi at 2023/12/15 - start
-dfactory=`getprop ro.factory_version`
-#  N19 code for HQ-351562 by p-yeyinzi at 2023/12/15 - end
 
 #
 # Override USB default composition
@@ -113,16 +134,7 @@ if [ "$(getprop persist.vendor.usb.config)" == "" -a "$(getprop ro.build.type)" 
 		          setprop persist.vendor.usb.config diag,serial_cdev,rmnet,dpl,adb
 		      ;;
 	              "msmnile" | "sm6150" | "trinket" | "lito" | "atoll" | "bengal" | "lahaina" | "holi" | "taro" | "parrot" | "ravelin")
-			  #  N19 code for HQ-351562 by p-yeyinzi at 2023/12/15 - start
-				case "$dfactory" in
-					"true")
-						setprop persist.vendor.usb.config diag,serial_cdev,rmnet,dpl,qdss,adb
-						;;
-					*)
-						setprop persist.vendor.usb.config adb
-						;;
-				esac
-			  #  N19 code for HQ-351562 by p-yeyinzi at 2023/12/15 - end
+			  setprop persist.vendor.usb.config diag,serial_cdev,rmnet,dpl,qdss,adb
 		      ;;
 	              *)
 		          setprop persist.vendor.usb.config diag,adb
@@ -212,23 +224,10 @@ fi
 # enable ncm
 case "$target" in
 "neo" | "anorak")
-	if [ -d /config/usb_gadget/g1/functions/ncm.gs6 ]; then
-		cd /config/usb_gadget/g1/functions/ncm.gs6
+	if [ -d /config/usb_gadget/g1/functions/ncm.0 ]; then
+		cd /config/usb_gadget/g1/functions/ncm.0
 
 		echo WINNCM > os_desc/interface.ncm/compatible_id
-	fi
-    ;;
-esac
-
-#Configure class, subclass, protocol for RNDIS SW path to be detected by Windows
-case "$target" in
-"anorak")
-	if [ -d /config/usb_gadget/g1/functions/rndis.rndis ]; then
-		cd /config/usb_gadget/g1/functions/rndis.rndis
-
-		echo ef > class
-		echo 4 > subclass
-		echo 1 > protocol
 	fi
     ;;
 esac
