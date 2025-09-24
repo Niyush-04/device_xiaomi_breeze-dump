@@ -110,6 +110,7 @@ persist.wm.extensions.enabled=true
 remote_provisioning.enable_rkpd=true
 remote_provisioning.hostname=remoteprovisioning.googleapis.com
 ro.af.client_heap_size_kbyte=7168
+ro.bind_application_timeout=30000
 ro.booking.channel.path=/cust/etc/.booking.data.aid
 ro.build.shutdown_timeout=2
 ro.com.android.dataroaming=false

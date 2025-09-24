@@ -91,7 +91,7 @@ PRODUCT_PACKAGES += \
     vendor_modprobe.sh \
 
 PRODUCT_PACKAGES += \
-    fstab.emmc \
+    fstab.default \
     init.qcom.factory.rc \
     init.qcom.rc \
     init.qcom.usb.rc \
@@ -103,7 +103,7 @@ PRODUCT_PACKAGES += \
     miui.factoryreset.rc \
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.emmc:$(TARGET_VENDOR_RAMDISK_OUT)/first_stage_ramdisk/fstab.emmc
+    $(LOCAL_PATH)/rootdir/etc/fstab.default:$(TARGET_VENDOR_RAMDISK_OUT)/first_stage_ramdisk/fstab.default
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
